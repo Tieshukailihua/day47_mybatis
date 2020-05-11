@@ -33,6 +33,7 @@ public class Demo {
         Employee emp = mapper.findById2(1);
         System.out.println(emp.getEname());
         System.out.println(emp.getDept().getDname());*/
+        System.out.println("11111111");
 
 
 
