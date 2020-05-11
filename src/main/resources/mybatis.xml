@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <settings>
+        <!-- 启用懒加载，必须按照下面的方式配置 -->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <!-- 将积极加载改为消极加载，必须写，且为false才会懒加载 -->
+        <setting name="aggressiveLazyLoading" value="false"/>
+
+        <!-- 开启二级缓存 -->
+        <setting name="cacheEnabled" value="true"/>
+    </settings>
+    <!-- 设置别名 -->
+    <typeAliases>
+        <!--
+         type 类型，包名+类名
+         alias 指定的别名
+         -->
+        <!--<typeAlias type="zhu.app.mapper.Employee" alias="employee"></typeAlias>-->
+        <!--<typeAlias type="zhu.app.anno2.Employee" alias="employee"></typeAlias>-->
+        <typeAlias type="zhu.app.anno2.Employee" alias="employee"></typeAlias>
+        <typeAlias type="zhu.app.anno2.Department" alias="department"></typeAlias>
+
+    </typeAliases>
+
+    <environments default="mysqlEnv">
+        <!-- 配置数据库的连接 -->
+        <environment id="mysqlEnv">
+            <!-- 事务 -->
+            <transactionManager type="JDBC"/>
+            <!-- 配置数据源 -->
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/java43?serverTimezone=GMT%2B8"/>
+                <property name="username" value="root"/>
+                <property name="password" value="1234"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!-- 设置dao层接口 -->
+    <mappers>
+        <!--<mapper class="zhu.app.anno.EmployeeDao"></mapper>-->
+        <!-- 如何注解和XML的配置都使用，需要引入xml配置 -->
+        <!--<mapper resource="zhu/app/anno/EmployeeMapper.xml" />-->
+        <!--<mapper class="zhu.app.anno2.DepartmentDao"></mapper>
+        <mapper class="zhu.app.anno2.EmployeeDao"></mapper>-->
+        <mapper resource="zhu/app/anno2/EmployeeMapper.xml"></mapper>
+        <mapper resource="zhu/app/anno2/DepartmentMapper.xml"></mapper>
+    </mappers>
+</configuration>
+
