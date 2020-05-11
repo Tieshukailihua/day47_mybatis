@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="zhu.app.anno2.DepartmentDao">
+    <resultMap id="deptMap2" type="department">
+        <id column="did" property="did"></id>
+        <result column="dname" property="dname"></result>
+    </resultMap>
+
+
+</mapper>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace 必须是相关的dao接口的全限定名（包名+接口名）
+sql配置的id要和dao层中接口的名称保持一致
+parameterType的类型要和接口中参数类型保持一致
+查询时，返回结果要和接口中返回类型保持一致
+ -->
+<mapper namespace="zhu.app.anno.EmployeeDao">
+    <resultMap id="empMap2" type="employee">
+        <id column="eid" property="eid"></id>
+        <result column="ename" property="ename"></result>
+        <association property="dept" resultMap="zhu.app.anno2.DepartmentDao.deptMap"></association>
+    </resultMap>
+
+</mapper>
